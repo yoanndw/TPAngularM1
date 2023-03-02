@@ -1,0 +1,16 @@
+<div>
+    <label for="input-id">Id</label>
+    <input name="input-id" [(ngModel)]="id">
+    <br>
+
+    <label for="input-name">Name</label>
+    <input name="input-name" [(ngModel)]="pokemonSearchString">
+    <br>
+    <!-- <p>{{pokemonSearchString}}</p> -->
+
+    <select [(ngModel)]="id">
+        <option *ngFor="let p of (pokemons | pokemonFilter:'name':pokemonSearchString)" [value]="p.id">{{ p.name }}</option>
+    </select>
+
+    <button (click)="go()">Go!</button>
+</div>

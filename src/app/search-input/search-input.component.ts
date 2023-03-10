@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Pokemon } from './pokemon';
+import { PokeApiService } from '../poke-api.service';
 
 @Component({
   selector: 'app-search-input',
@@ -18,9 +19,9 @@ export class SearchInputComponent {
 
   pokemonSearchString: string = "";
 
+  constructor(private pokeapi: PokeApiService) {}
+
   go() {
-    if (this.id !== "") {
-      console.log("go!", this.id);
-    }
+    this.pokeapi.getAllPokemon();
   }
 }

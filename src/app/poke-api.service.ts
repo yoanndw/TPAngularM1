@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,13 @@ import { Injectable } from '@angular/core';
 export class PokeApiService {
   constructor(private http: HttpClient) { }
 
-  getAllPokemon(): any {
+  getAllPokemon(): Observable<object> {
     const query = "https://pokeapi.co/api/v2/pokemon";
-    const res = this.http.get(query);
-    res.subscribe((data) => {
-      console.log(data);
-    });
+    return this.http.get(query);
+  }
+
+  getPokemon(pokemon: string): Observable<object> {
+    const query = "https://pokeapi.co/api/v2/pokemon/" + pokemon;
+    return this.http.get(query);
   }
 }

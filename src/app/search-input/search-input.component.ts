@@ -17,11 +17,18 @@ export class SearchInputComponent {
     new Pokemon("4", "Miaous")
   ];
 
+  pokemon: Pokemon;
+
   pokemonSearchString: string = "";
 
-  constructor(private pokeapi: PokeApiService) {}
+  constructor(private pokeapi: PokeApiService) {
+    this.pokemon = new Pokemon();
+  }
 
   go() {
-    this.pokeapi.getAllPokemon();
+    this.pokeapi.getPokemon("psyduck").subscribe(data => {
+      this.pokemon.initFromJson(data)
+      console.log(this.pokemon);
+    });
   }
 }

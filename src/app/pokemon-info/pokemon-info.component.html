@@ -1,7 +1,7 @@
-<h2>#{{ pokemon.id }} {{ pokemon.name }}</h2>
+<h2 *ngIf="pokemon !== undefined">#{{ pokemon!.id }} {{ pokemon!.name }}</h2>
 
-<ul>
-    <li *ngFor="let t of pokemon.types">
+<ul *ngIf="pokemon !== undefined">
+    <li *ngFor="let t of pokemon!.types">
         {{ t }}
     </li>
 </ul>

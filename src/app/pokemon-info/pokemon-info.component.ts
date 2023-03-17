@@ -9,11 +9,10 @@ import { SharePokemonIdService } from '../share-pokemon-id.service';
   styleUrls: ['./pokemon-info.component.css']
 })
 export class PokemonInfoComponent implements OnInit {
-  pokemon: Pokemon;
+  pokemon?: Pokemon;
   shareIdSubscription?: Subscription;
 
   constructor(private shareId: SharePokemonIdService) {
-    this.pokemon = new Pokemon("1", "psyduck");
   }
 
   ngOnInit() {

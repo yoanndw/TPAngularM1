@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Pokemon } from '../search-input/pokemon';
 import { SharePokemonIdService } from '../share-pokemon-id.service';
@@ -17,7 +17,7 @@ export class PokemonInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.shareIdSubscription = this.shareId.observable.subscribe(this.onPokemonChange);
+    this.shareIdSubscription = this.shareId.observable.subscribe(p => this.onPokemonChange(p));
     console.log("this.share", this.shareId);
     console.log("this.subscription", this.shareIdSubscription);
   }

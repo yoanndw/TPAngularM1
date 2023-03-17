@@ -1,18 +1,23 @@
-<div>
-    <label for="input-id">Id</label>
-    <input name="input-id" [(ngModel)]="id">
-    <br>
+<div class="vertical">
+    <div class="horizontal">
+        <label for="input-id">Id</label>
+        <input name="input-id" [(ngModel)]="id">
+    </div>
 
-    <label for="input-name">Name</label>
-    <input name="input-name" [(ngModel)]="pokemonSearchString">
-    <br>
-    <!-- <p>{{pokemonSearchString}}</p> -->
+    <div class="horizontal field">
+        <label for="input-name">Name</label>
+        <input name="input-name" [(ngModel)]="pokemonSearchString">
+    </div>
 
-    <select [(ngModel)]="id" 
-        
-    >
-        <option *ngFor="let p of (pokemons | pokemonFilter:'name':pokemonSearchString)" [value]="p.id">{{ p.name }}</option>
-    </select>
+    <div class="horizontal field">
+        <select [(ngModel)]="id">
+            <option *ngFor="let p of (pokemons | pokemonFilter:'name':pokemonSearchString)" [value]="p.id">{{ p.name }}
+            </option>
+        </select>
 
-    <button (click)="go()">Go!</button>
+    </div>
+
+    <div class="horizontal">
+        <button id="go" (click)="go()">Go!</button>
+    </div>
 </div>

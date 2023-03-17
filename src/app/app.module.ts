@@ -9,6 +9,7 @@ import { PokemonFilterPipe } from './search-input/pokemon-filter.pipe';
 import { PokeApiService } from './poke-api.service';
 import { PokemonInfoComponent } from './pokemon-info/pokemon-info.component';
 import { SharePokemonIdService } from './share-pokemon-id.service';
+import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SharePokemonIdService } from './share-pokemon-id.service';
     SearchInputComponent,
     PokemonFilterPipe,
     PokemonInfoComponent,
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,

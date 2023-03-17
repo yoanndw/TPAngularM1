@@ -10,12 +10,7 @@ import { PokeApiService } from '../poke-api.service';
 })
 export class SearchInputComponent {
   id: string = "";
-  pokemons = [
-    new Pokemon("1", "Pikachu"),
-    new Pokemon("2", "Tortank"),
-    new Pokemon("3", "Bulbizar"),
-    new Pokemon("4", "Miaous")
-  ];
+  pokemons: Pokemon[] = [];
 
   pokemon: Pokemon;
 
@@ -25,8 +20,27 @@ export class SearchInputComponent {
     this.pokemon = new Pokemon();
   }
 
+  ngOnInit() {
+    this.pokemons = [];
+
+    this.pokeapi.getAllPokemon().subscribe(data => {
+      console.log(data);
+      
+      for (const [id, obj] of (data as any).results.entries()) {
+        let p = new Pokemon((id + 1).toString(), obj.name);
+        console.log("Create pok", p)
+        this.pokemons[id] = p;
+      }
+      console.log(this.pokemons)
+    });
+  }
+
+  getCurrentPokemonName(): string | undefined {
+    return this.pokemons[Number(this.id) + 1].name;
+  }
+
   go() {
-    this.pokeapi.getPokemon("psyduck").subscribe(data => {
+    this.pokeapi.getPokemon(this.getCurrentPokemonName()!).subscribe(data => {
       this.pokemon.initFromJson(data)
       console.log(this.pokemon);
     });

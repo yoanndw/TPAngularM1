@@ -8,7 +8,9 @@
     <br>
     <!-- <p>{{pokemonSearchString}}</p> -->
 
-    <select [(ngModel)]="id">
+    <select [(ngModel)]="id" 
+        
+    >
         <option *ngFor="let p of (pokemons | pokemonFilter:'name':pokemonSearchString)" [value]="p.id">{{ p.name }}</option>
     </select>
 

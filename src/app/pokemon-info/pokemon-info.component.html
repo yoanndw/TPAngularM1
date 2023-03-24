@@ -1,7 +1,7 @@
-<h2 *ngIf="pokemon !== undefined">#{{ pokemon!.id }} {{ pokemon!.name! | capitalize }}</h2>
+<h2 class="capitalize" *ngIf="pokemon !== undefined">#{{ pokemon!.id }} {{ pokemon!.name! }}</h2>
 
 <ul *ngIf="pokemon !== undefined">
-    <li *ngFor="let t of pokemon!.types">
-        {{ t! | capitalize }}
+    <li class="capitalize" *ngFor="let t of pokemon!.types">
+        {{ t! }}
     </li>
 </ul>

@@ -6,7 +6,7 @@ import { SharePokemonIdService } from '../share-pokemon-id.service';
 @Component({
   selector: 'app-pokemon-info',
   templateUrl: './pokemon-info.component.html',
-  styleUrls: ['./pokemon-info.component.css']
+  styleUrls: ['./pokemon-info.component.css', '../app.component.css']
 })
 export class PokemonInfoComponent implements OnInit {
   pokemon?: Pokemon;

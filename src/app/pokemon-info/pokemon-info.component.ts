@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Pokemon } from '../search-input/pokemon';
+import { Pokemon } from '../pokemon';
 import { SharePokemonIdService } from '../share-pokemon-id.service';
 
 @Component({

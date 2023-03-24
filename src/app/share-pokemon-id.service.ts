@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Pokemon } from './search-input/pokemon';
+import { Pokemon } from './pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,5 @@ export class SharePokemonIdService {
 
   changePokemon(p: Pokemon) {
     this.observable.next(p);
-    // console.log("service", p)
   }
 }

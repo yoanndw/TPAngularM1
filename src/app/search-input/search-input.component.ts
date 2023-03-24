@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pokemon } from './pokemon';
+import { Pokemon } from '../pokemon';
 import { PokeApiService } from '../poke-api.service';
 import { SharePokemonIdService } from '../share-pokemon-id.service';
 
@@ -24,10 +24,10 @@ export class SearchInputComponent implements OnInit {
   ngOnInit() {
     this.pokemons = [];
 
-    this.pokeapi.getAllPokemon().subscribe(data => {
+    this.pokeapi.getAllPokemons().subscribe(data => {
       console.log("Get pokemons: ", data);
       
-      for (const [id, obj] of (data as any).results.entries()) {
+      for (const [id, obj] of data.results.entries()) {
         let p = new Pokemon((id + 1).toString(), obj.name);
         console.log("Create pok", p)
         this.pokemons[id] = p;

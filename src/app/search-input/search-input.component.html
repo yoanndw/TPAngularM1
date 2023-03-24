@@ -11,7 +11,7 @@
 
     <div class="horizontal field">
         <select [(ngModel)]="id">
-            <option class="capitalize" *ngFor="let p of (pokemons | pokemonFilter:'name':pokemonSearchString)" [value]="p.id">{{ p.name }}
+            <option class="capitalize" *ngFor="let p of (pokemons | pokemonFilter:pokemonSearchString)" [value]="p.id">{{ p.name }}
             </option>
         </select>
 
